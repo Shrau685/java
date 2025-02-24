@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+public class ProcessArray {
+    public static void main(String[] args) {
+        int[] arr = {12, -5, 345, -9, 78, 0, -11, 6};
+        
+        // Process the array
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                arr[i] = 0;  // Replace negative numbers with 0
+            } else {
+                arr[i] = sumOfDigits(arr[i]);  // Replace positive numbers with sum of digits
+            }
+        }
+        
+        // Print the modified array
+        System.out.println("Modified Array: " + Arrays.toString(arr));
+    }
+
+    // Function to calculate sum of digits of a number
+    public static int sumOfDigits(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;  // Extract last digit and add to sum
+            num /= 10;  // Remove last digit
+        }
+        return sum;
+    }
+}
